@@ -20,7 +20,7 @@ export function Header() {
             color="pink"
             fontSize={30}
             fontFamily={"monospace"}
-            fontWeight={700}
+            fontWeight="bold"
           >
             PeachTech欅祭アンケート
           </Typography>
