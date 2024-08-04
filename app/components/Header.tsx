@@ -17,14 +17,12 @@ export function Header() {
             sx={{ mr: 2 }}
           ></IconButton>
           <Typography
-            variant="h6"
             color="pink"
-            component="div"
-            fontSize={35}
+            fontSize={30}
             fontFamily={"monospace"}
             fontWeight={700}
           >
-            PeachTech
+            PeachTech欅祭アンケート
           </Typography>
         </Toolbar>
       </AppBar>
