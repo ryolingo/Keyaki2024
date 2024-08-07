@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import React from "react";
 import Header from "./components/Header";
+import Home from "./components/Home";
+async function fetchALLFeedbacks() {
+  const res = await fetch(`http://localhost:3000/api/feedback`);
+}
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +24,7 @@ export default function RootLayout({
       <body style={{ margin: 0 }}>
         <Header />
         {children}
+        <Home />
       </body>
     </html>
   );
