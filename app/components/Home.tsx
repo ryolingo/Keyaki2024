@@ -1,13 +1,6 @@
 import Link from "next/link";
 import { PostType } from "../types";
-
-async function fetchALLFeedbacks() {
-  const res = await fetch(`http://localhost:3000/api/feedback`, {
-    cache: "no-store",
-  });
-  const data = await res.json();
-  return data.feedback;
-}
+import fetchALLFeedbacks from "../hooks/fetchAllFeedbacks";
 
 export default async function Home() {
   const feedbacks = await fetchALLFeedbacks();
