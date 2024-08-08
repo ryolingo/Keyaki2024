@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { PostType } from "../types";
-import fetchALLFeedbacks from "../hooks/fetchAllFeedbacks";
+import fetchALLFeedbacks from "../hooks/useFeedback";
 
 export default async function Home() {
   const feedbacks = await fetchALLFeedbacks();
