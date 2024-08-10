@@ -20,6 +20,11 @@ export default async function Home() {
             <div>
               <h2>{feedback.comment}</h2>
             </div>
+            <div>
+              <blockquote>
+                {new Date(feedback.date).toLocaleString()}
+              </blockquote>
+            </div>
           </div>
         ))}
       </div>
