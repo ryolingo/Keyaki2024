@@ -16,5 +16,5 @@ datasource db {
 model Feedback {
   id Int @id @default(autoincrement())
   comment String
-  date  DateTime @default(now())
+  createdAt  DateTime @default(now())
 }

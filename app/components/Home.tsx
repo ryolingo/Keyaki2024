@@ -22,7 +22,7 @@ export default async function Home() {
             </div>
             <div>
               <blockquote>
-                {new Date(feedback.date).toLocaleString()}
+                {new Date(feedback.createdAt).toLocaleString()}
               </blockquote>
             </div>
           </div>
