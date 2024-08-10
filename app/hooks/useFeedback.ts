@@ -5,3 +5,15 @@ export default async function fetchALLFeedbacks() {
   const data = await res.json();
   return data.feedback;
 }
+
+export const postFeedback = async (comment: string | undefined) => {
+  const res = await fetch(`http://localhost:3000/api/feedback`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ comment }),
+  });
+
+  return res.json();
+};
