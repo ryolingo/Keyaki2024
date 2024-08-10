@@ -26,9 +26,9 @@ export const GET = async (req: Request, res: NextResponse) => {
 //FEEDBACk投稿用API
 export const POST = async (req: Request, res: NextResponse) => {
   try {
-    const { comment } = await req.json();
+    const { comment, date } = await req.json();
     await main();
-    const feedback = await prisma.feedback.create({ data: { comment } });
+    const feedback = await prisma.feedback.create({ data: { comment, date } });
     return NextResponse.json({ message: "Success", feedback }, { status: 201 });
   } catch (err) {
     return NextResponse.json({ message: "Error", err }, { status: 500 });
