@@ -1,18 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import React, { useRef } from "react";
-
-const postFeedback = async (comment: string | undefined) => {
-  const res = await fetch(`http://localhost:3000/api/feedback`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ comment }),
-  });
-
-  return res.json();
-};
+import { postFeedback } from "../hooks/useFeedback";
 
 const Postfeedback = () => {
   const router = useRouter();
