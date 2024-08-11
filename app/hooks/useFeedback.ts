@@ -12,7 +12,7 @@ export const postFeedback = async (comment: string | undefined) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ comment }),
+    body: JSON.stringify({ comment, createdAt: new Date() }),
   });
 
   return res.json();
