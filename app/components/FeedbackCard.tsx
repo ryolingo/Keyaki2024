@@ -1,14 +1,12 @@
 import { Box, Typography } from "@mui/material";
+import { FC } from "react";
 
-interface FeedbackCardProps {
+type FeedbackCardProps = {
   comment: string;
   createdAt: string;
-}
+};
 
-export default function FeedbackCard({
-  comment,
-  createdAt,
-}: FeedbackCardProps) {
+const FeedbackCard: React.FC<FeedbackCardProps> = ({ comment, createdAt }) => {
   return (
     <Box border={1} borderColor="gainsboro" padding={3} marginBottom={2}>
       <Typography component="h2" textAlign="left" fontSize="13px">
@@ -19,4 +17,6 @@ export default function FeedbackCard({
       </Typography>
     </Box>
   );
-}
+};
+
+export default FeedbackCard;
