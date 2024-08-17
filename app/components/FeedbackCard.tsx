@@ -11,12 +11,7 @@ export default function FeedbackCard({
 }: FeedbackCardProps) {
   return (
     <Box border={1} borderColor="gainsboro" padding={3} marginBottom={2}>
-      <Typography
-        component="h2"
-        paddingLeft="0px"
-        textAlign="left"
-        fontSize="13px"
-      >
+      <Typography component="h2" textAlign="left" fontSize="13px">
         {comment}
       </Typography>
       <Typography fontSize="10px">
