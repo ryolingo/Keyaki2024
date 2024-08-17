@@ -1,33 +1,26 @@
-import Link from "next/link";
 import fetchALLFeedbacks from "../hooks/useFeedback";
 import { PostType } from "../types";
+import { Box, Container, Typography } from "@mui/material";
+import FeedbackCard from "./FeedbackCard";
 
 export default async function Home() {
   const feedbacks = await fetchALLFeedbacks();
   return (
-    <main>
-      <div>
-        <h1>欅祭アンケート</h1>
-      </div>
+    <Container>
+      <Typography fontSize={40} display="flex" justifyContent="center">
+        欅祭アンケート
+      </Typography>
       {/* Link */}
-      <div>
-        <Link href={"/feedback"}>ブログ新規作成</Link>
-      </div>
 
-      <div>
+      <Box>
         {feedbacks?.map((feedback: PostType) => (
-          <div key={feedback.id}>
-            <div>
-              <h2>{feedback.comment}</h2>
-            </div>
-            <div>
-              <blockquote>
-                {new Date(feedback.createdAt).toLocaleString()}
-              </blockquote>
-            </div>
-          </div>
+          <FeedbackCard
+            comment={feedback.comment}
+            createdAt={feedback.createdAt}
+            key={feedback.id}
+          />
         ))}
-      </div>
-    </main>
+      </Box>
+    </Container>
   );
 }
