@@ -1,7 +1,7 @@
 import fetchALLFeedbacks from "../hooks/useFeedback";
 import { Box, Container, Typography } from "@mui/material";
 import FeedbackCard from "./FeedbackCard";
-import Postfeedback from "./Postfeedback";
+import PostFeedback from "./Postfeedback";
 import { PostType } from "../Types";
 
 export default async function Home() {
@@ -11,7 +11,7 @@ export default async function Home() {
       <Typography fontSize={40} display="flex" justifyContent="center">
         欅祭アンケート
       </Typography>
-      <Postfeedback />
+      <PostFeedback />
       {/* Link */}
       <Box>
         {feedbacks?.map((feedback: PostType) => (
