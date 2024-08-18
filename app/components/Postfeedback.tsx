@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { postFeedback } from "../hooks/useFeedback";
 import { Box, Button, TextField } from "@mui/material";
+import PostFeedbackUI from "./PostfeedbackUI";
 
 const PostFeedback = () => {
   const router = useRouter();
@@ -17,24 +18,16 @@ const PostFeedback = () => {
     setFeedback("");
   };
 
+  const handleFeedbackChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFeedback(e.target.value);
+  };
+
   return (
-    <Box component={"form"} onSubmit={handleSubmit}>
-      <Box display={"flex"} flexDirection={"column"} mb={1}>
-        <TextField
-          sx={{ marginBottom: "20px" }}
-          value={feedback}
-          onChange={(e) => setFeedback(e.target.value)}
-          placeholder="感想を教えてね!"
-          multiline
-          minRows={3}
-        />
-      </Box>
-      <Box mb={3} justifyContent="center" display={"flex"}>
-        <Button variant="contained" type="submit" size="small">
-          投稿
-        </Button>
-      </Box>
-    </Box>
+    <PostFeedbackUI
+      feedback={feedback}
+      onFeedbackChange={handleFeedbackChange}
+      onSubmit={handleSubmit}
+    />
   );
 };
 

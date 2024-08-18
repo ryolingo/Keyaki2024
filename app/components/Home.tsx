@@ -2,7 +2,7 @@ import fetchALLFeedbacks from "../hooks/useFeedback";
 import { Box, Container, Typography } from "@mui/material";
 import FeedbackCard from "./FeedbackCard";
 import PostFeedback from "./Postfeedback";
-import { PostType } from "../Types";
+import { PostType } from "../types";
 
 export default async function Home() {
   const feedbacks = await fetchALLFeedbacks();
