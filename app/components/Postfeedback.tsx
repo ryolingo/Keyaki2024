@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { postFeedback } from "../hooks/useFeedback";
 import { Box, Button, TextField } from "@mui/material";
 
-const Postfeedback = () => {
+const PostFeedback = () => {
   const router = useRouter();
   const [feedback, setFeedback] = useState("");
 
@@ -27,7 +27,7 @@ const Postfeedback = () => {
           placeholder="感想を教えてね!"
           multiline
           minRows={3}
-        ></TextField>
+        />
       </Box>
       <Box mb={3} justifyContent="center" display={"flex"}>
         <Button variant="contained" type="submit" size="small">
@@ -38,4 +38,4 @@ const Postfeedback = () => {
   );
 };
 
-export default Postfeedback;
+export default PostFeedback;
