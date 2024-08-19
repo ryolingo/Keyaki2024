@@ -2,9 +2,9 @@
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { postFeedback } from "../hooks/useFeedback";
-import PostFeedbackUI from "./PostFeedback";
+import PostFeedback from "./PostFeedback";
 
-const PostFeedback = () => {
+const PostfeedbackContainer = () => {
   const router = useRouter();
   const [feedback, setFeedback] = useState("");
 
@@ -22,7 +22,7 @@ const PostFeedback = () => {
   };
 
   return (
-    <PostFeedbackUI
+    <PostFeedback
       feedback={feedback}
       onFeedbackChange={handleFeedbackChange}
       onSubmit={handleSubmit}
@@ -30,4 +30,4 @@ const PostFeedback = () => {
   );
 };
 
-export default PostFeedback;
+export default PostfeedbackContainer;

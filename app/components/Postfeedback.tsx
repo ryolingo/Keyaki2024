@@ -1,13 +1,13 @@
 import { Box, Button, TextField } from "@mui/material";
 import React from "react";
 
-type PostFeedbackUIProps = {
+type PostFeedbackProps = {
   feedback: string;
   onFeedbackChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onSubmit: (e: React.FormEvent) => void;
 };
 
-const PostFeedbackUI: React.FC<PostFeedbackUIProps> = ({
+const PostFeedback: React.FC<PostFeedbackProps> = ({
   feedback,
   onFeedbackChange,
   onSubmit,
@@ -33,4 +33,4 @@ const PostFeedbackUI: React.FC<PostFeedbackUIProps> = ({
   );
 };
 
-export default PostFeedbackUI;
+export default PostFeedback;
