@@ -1,29 +1,24 @@
-"use client";
-import { useRouter } from "next/navigation";
-import React, { useState } from "react";
-import { postFeedback } from "../hooks/useFeedback";
 import { Box, Button, TextField } from "@mui/material";
+import React from "react";
 
-const PostFeedback = () => {
-  const router = useRouter();
-  const [feedback, setFeedback] = useState("");
+type PostFeedbackProps = {
+  feedback: string;
+  onFeedbackChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onSubmit: (e: React.FormEvent) => void;
+};
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    await postFeedback(feedback);
-    router.refresh();
-
-    setFeedback("");
-  };
-
+const PostFeedback: React.FC<PostFeedbackProps> = ({
+  feedback,
+  onFeedbackChange,
+  onSubmit,
+}) => {
   return (
-    <Box component={"form"} onSubmit={handleSubmit}>
+    <Box component={"form"} onSubmit={onSubmit}>
       <Box display={"flex"} flexDirection={"column"} mb={1}>
         <TextField
           sx={{ marginBottom: "20px" }}
           value={feedback}
-          onChange={(e) => setFeedback(e.target.value)}
+          onChange={onFeedbackChange}
           placeholder="感想を教えてね!"
           multiline
           minRows={3}
