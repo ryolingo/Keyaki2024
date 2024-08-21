@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { postFeedback } from "../hooks/useFeedback";
 import PostFeedback from "./PostFeedback";
 
-const PostfeedbackContainer = () => {
+const PostFeedbackContainer = () => {
   const router = useRouter();
   const [feedback, setFeedback] = useState("");
 
@@ -30,4 +30,4 @@ const PostfeedbackContainer = () => {
   );
 };
 
-export default PostfeedbackContainer;
+export default PostFeedbackContainer;
