@@ -16,7 +16,7 @@ const HomeContainer = () => {
     fetchFeedbacks();
   }, []);
 
-  return <Home feedbacks={feedbacks} />;
+  return <Home />;
 };
 
 export default HomeContainer;
