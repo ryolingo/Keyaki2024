@@ -1,18 +1,19 @@
-import fetchALLFeedbacks from "../hooks/useFeedback";
 import { Box, Container, Typography } from "@mui/material";
 import FeedbackCard from "./FeedbackCard";
-import PostFeedback from "./PostFeedbackContainer";
 import { PostType } from "../types";
+import PostFeedbackContainer from "./PostFeedbackContainer";
 
-export default async function Home() {
-  const feedbacks = await fetchALLFeedbacks();
+type HomeProps = {
+  feedbacks: PostType[];
+};
+
+const Home: React.FC<HomeProps> = ({ feedbacks }) => {
   return (
     <Container>
       <Typography fontSize={40} display="flex" justifyContent="center">
         欅祭アンケート
       </Typography>
-      <PostFeedback />
-      {/* Link */}
+      <PostFeedbackContainer />
       <Box>
         {feedbacks?.map((feedback: PostType) => (
           <FeedbackCard
@@ -24,4 +25,6 @@ export default async function Home() {
       </Box>
     </Container>
   );
-}
+};
+
+export default Home;
