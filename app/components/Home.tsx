@@ -13,7 +13,6 @@ const Home: React.FC<HomeProps> = ({ feedbacks }) => {
       <Typography
         marginTop={3}
         marginBottom={3}
-        fontSize={30}
         textAlign="center"
         fontWeight="bold"
         sx={{
@@ -26,9 +25,9 @@ const Home: React.FC<HomeProps> = ({ feedbacks }) => {
       </Typography>
       <PostFeedbackContainer />
       <Box
+        height="clamp(200px,50vh,400px)"
+        marginTop="4"
         sx={{
-          marginTop: 4,
-          height: "clamp(200px,50vh,400px)",
           overflowY: "auto",
           "::-webkit-scrollbar": {
             display: "none",
