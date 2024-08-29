@@ -10,11 +10,33 @@ type HomeProps = {
 const Home: React.FC<HomeProps> = ({ feedbacks }) => {
   return (
     <Container>
-      <Typography fontSize={40} display="flex" justifyContent="center">
-        欅祭アンケート
+      <Typography
+        marginTop={3}
+        marginBottom={3}
+        fontSize={30}
+        textAlign="center"
+        fontWeight="bold"
+        sx={{
+          fontSize: {
+            md: "30px",
+          },
+        }}
+      >
+        ↓↓感想をおねがいします！↓↓
       </Typography>
       <PostFeedbackContainer />
-      <Box>
+      <Box
+        sx={{
+          marginTop: 4,
+          height: "clamp(200px,50vh,400px)",
+          overflowY: "auto",
+          "::-webkit-scrollbar": {
+            display: "none",
+          },
+          msOverflowStyle: "none",
+          scrollbarWidth: "none",
+        }}
+      >
         {feedbacks?.map((feedback: PostType) => (
           <FeedbackCard
             comment={feedback.comment}
