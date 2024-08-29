@@ -1,4 +1,5 @@
 import { AppBar, Box, Toolbar, Typography } from "@mui/material";
+import Image from "next/image";
 export default function Header() {
   return (
     <Box
@@ -15,11 +16,14 @@ export default function Header() {
         }}
       >
         <Toolbar variant="dense">
-          <img
+          <Image
             src="/momoTech_2.png"
             alt="PeachTech Logo"
-            style={{ height: "90px", marginRight: "10px" }}
+            width={70}
+            height={70}
+            priority
           />
+
           <Typography
             color="wihte"
             fontSize="20px"
