@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import React from "react";
 import Header from "./components/Header";
+import ToastProvider from "./components/ToastProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,8 +19,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body style={{ margin: 0 }}>
+        <ToastProvider>{children}</ToastProvider>
         <Header />
-        {children}
       </body>
     </html>
   );

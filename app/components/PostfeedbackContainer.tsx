@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { postFeedback } from "../hooks/useFeedback";
 import PostFeedback from "./PostFeedback";
-import { toast, ToastContainer } from "react-toastify";
+import { Flip, toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const PostFeedbackContainer = () => {
@@ -38,7 +38,6 @@ const PostFeedbackContainer = () => {
         onFeedbackChange={handleFeedbackChange}
         onSubmit={handleSubmit}
       />
-      <ToastContainer />
     </>
   );
 };
