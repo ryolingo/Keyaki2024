@@ -10,23 +10,13 @@ type HomeProps = {
 const Home: React.FC<HomeProps> = ({ feedbacks }) => {
   return (
     <Container>
-      <Typography
-        marginTop={3}
-        marginBottom={3}
-        textAlign="center"
-        fontWeight="bold"
-        sx={{
-          fontSize: {
-            md: "30px",
-          },
-        }}
-      >
+      <Typography my={3} textAlign="center" fontWeight="bold" fontSize={25}>
         ↓↓感想をおねがいします！↓↓
       </Typography>
       <PostFeedbackContainer />
       <Box
         height="clamp(200px,50vh,400px)"
-        marginTop="4"
+        marginTop={4}
         sx={{
           overflowY: "auto",
           "::-webkit-scrollbar": {
