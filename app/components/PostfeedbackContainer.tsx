@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { postFeedback } from "../hooks/useFeedback";
 import PostFeedback from "./PostFeedback";
-import { Flip, toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const PostFeedbackContainer = () => {
@@ -13,11 +13,12 @@ const PostFeedbackContainer = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    toast.info("投稿中...");
+    const toastID = toast.info("投稿中...");
 
     try {
       await postFeedback(feedback);
 
+      toast.dismiss(toastID);
       toast.success("投稿が完了しました！");
 
       router.refresh();
@@ -43,3 +44,6 @@ const PostFeedbackContainer = () => {
 };
 
 export default PostFeedbackContainer;
+function seTtoastID(id: any) {
+  throw new Error("Function not implemented.");
+}
