@@ -10,11 +10,15 @@ export async function main() {
     return "DB接続に失敗しました";
   }
 }
-//全FEEDBACK取得用API
+//GET API
 export const GET = async (req: Request, res: NextResponse) => {
   try {
     await main();
-    const feedback = await prisma.feedback.findMany();
+    const feedback = await prisma.feedback.findMany({
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
     return NextResponse.json({ message: "Success", feedback }, { status: 200 });
   } catch (err) {
     return NextResponse.json({ message: "Error", err }, { status: 500 });
