@@ -19,10 +19,10 @@ const PostFeedbackContainer = () => {
       await postFeedback(feedback);
 
       toast.dismiss(toastID);
-      toast.success("投稿が完了しました！");
 
       router.refresh();
       setFeedback("");
+      toast.success("投稿が完了しました！");
     } catch (error) {
       toast.error("投稿に失敗しました。再度お試しください。");
     }
