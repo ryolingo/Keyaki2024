@@ -44,6 +44,3 @@ const PostFeedbackContainer = () => {
 };
 
 export default PostFeedbackContainer;
-function seTtoastID(id: any) {
-  throw new Error("Function not implemented.");
-}
