@@ -3,6 +3,8 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { postFeedback } from "../hooks/useFeedback";
 import PostFeedback from "./PostFeedback";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const PostFeedbackContainer = () => {
   const router = useRouter();
@@ -11,10 +13,19 @@ const PostFeedbackContainer = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    await postFeedback(feedback);
-    router.refresh();
+    const toastID = toast.info("投稿中...");
 
-    setFeedback("");
+    try {
+      await postFeedback(feedback);
+
+      toast.dismiss(toastID);
+      toast.success("投稿が完了しました！");
+
+      router.refresh();
+      setFeedback("");
+    } catch (error) {
+      toast.error("投稿に失敗しました。再度お試しください。");
+    }
   };
 
   const handleFeedbackChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,11 +33,13 @@ const PostFeedbackContainer = () => {
   };
 
   return (
-    <PostFeedback
-      feedback={feedback}
-      onFeedbackChange={handleFeedbackChange}
-      onSubmit={handleSubmit}
-    />
+    <>
+      <PostFeedback
+        feedback={feedback}
+        onFeedbackChange={handleFeedbackChange}
+        onSubmit={handleSubmit}
+      />
+    </>
   );
 };
 
