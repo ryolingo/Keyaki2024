@@ -2,11 +2,7 @@ import { AppBar, Box, Toolbar, Typography } from "@mui/material";
 import Image from "next/image";
 export default function Header() {
   return (
-    <Box
-      sx={{
-        flexGrow: 1,
-      }}
-    >
+    <Box flexGrow={1}>
       <AppBar
         position="static"
         sx={{
