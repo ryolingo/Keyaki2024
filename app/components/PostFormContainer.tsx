@@ -5,6 +5,7 @@ import { postFeedback } from "../hooks/useFeedback";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PostForm from "./PostForm";
+import { ServerActionError } from "../types/types";
 
 const PostFormContainer = () => {
   const router = useRouter();
@@ -24,7 +25,9 @@ const PostFormContainer = () => {
       setFeedback("");
       toast.success("投稿が完了しました！");
     } catch (error) {
-      toast.error("投稿に失敗しました。再度お試しください。");
+      if (error instanceof ServerActionError)
+        return { success: false, error: error.message };
+      throw error;
     }
   };
 
