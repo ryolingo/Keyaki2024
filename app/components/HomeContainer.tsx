@@ -1,5 +1,4 @@
-"use client";
-import fetchALLFeedbacks from "../hooks/useFeedback"; // 修正
+import fetchALLFeedbacks from "../hooks/useFeedback";
 import Home from "./Home";
 
 const HomeContainer = async () => {
