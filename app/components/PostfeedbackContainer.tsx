@@ -6,7 +6,7 @@ import PostFeedback from "./PostFeedback";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const PostFeedbackContainer = () => {
+const PostfeedbackContainer = () => {
   const router = useRouter();
   const [feedback, setFeedback] = useState("");
 
@@ -43,4 +43,4 @@ const PostFeedbackContainer = () => {
   );
 };
 
-export default PostFeedbackContainer;
+export default PostfeedbackContainer;
