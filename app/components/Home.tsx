@@ -1,7 +1,7 @@
 import { Box, Container, Typography } from "@mui/material";
 import FeedbackCard from "./FeedbackCard";
-import { PostType } from "../types";
 import PostFormContainer from "./PostFormContainer";
+import { PostType } from "../types/types";
 
 type HomeProps = {
   feedbacks: PostType[];
