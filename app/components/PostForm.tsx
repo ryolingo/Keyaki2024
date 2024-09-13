@@ -7,7 +7,7 @@ type PostFeedbackProps = {
   onSubmit: (e: React.FormEvent) => void;
 };
 
-const Postfeedback: React.FC<PostFeedbackProps> = ({
+const PostForm: React.FC<PostFeedbackProps> = ({
   feedback,
   onFeedbackChange,
   onSubmit,
@@ -33,4 +33,4 @@ const Postfeedback: React.FC<PostFeedbackProps> = ({
   );
 };
 
-export default Postfeedback;
+export default PostForm;

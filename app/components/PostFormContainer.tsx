@@ -4,9 +4,9 @@ import React, { useState } from "react";
 import { postFeedback } from "../hooks/useFeedback";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Postfeedback from "./PostFeedback";
+import PostForm from "./PostForm";
 
-const PostfeedbackContainer = () => {
+const PostFormContainer = () => {
   const router = useRouter();
   const [feedback, setFeedback] = useState("");
 
@@ -34,7 +34,7 @@ const PostfeedbackContainer = () => {
 
   return (
     <>
-      <Postfeedback
+      <PostForm
         feedback={feedback}
         onFeedbackChange={handleFeedbackChange}
         onSubmit={handleSubmit}
@@ -43,4 +43,4 @@ const PostfeedbackContainer = () => {
   );
 };
 
-export default PostfeedbackContainer;
+export default PostFormContainer;
