@@ -2,9 +2,9 @@
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { postFeedback } from "../hooks/useFeedback";
-import PostFeedback from "./PostFeedback";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Postfeedback from "./PostFeedback";
 
 const PostfeedbackContainer = () => {
   const router = useRouter();
@@ -34,7 +34,7 @@ const PostfeedbackContainer = () => {
 
   return (
     <>
-      <PostFeedback
+      <Postfeedback
         feedback={feedback}
         onFeedbackChange={handleFeedbackChange}
         onSubmit={handleSubmit}
