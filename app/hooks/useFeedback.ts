@@ -1,10 +1,12 @@
 import axios from "axios";
 
-export default async function fetchALLFeedbacks() {
+const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+
+export const fetchALLFeedbacks = async () => {
   try {
-    const res = await axios.get(`http://localhost:3000/api/feedback`, {
+    const res = await axios.get(`${apiUrl}/api/feedback`, {
       headers: {
-        "Content-Type": "no-store",
+        "Cashe-Control": "no-store",
       },
     });
     return res.data.feedback;
@@ -12,12 +14,12 @@ export default async function fetchALLFeedbacks() {
     console.error(error);
     throw error;
   }
-}
+};
 
 export const postFeedback = async (comment: string | undefined) => {
   try {
     const res = await axios.post(
-      `http://localhost:3000/api/feedback`,
+      `${apiUrl}/api/feedback`,
       {
         comment,
         createdAt: new Date(),
