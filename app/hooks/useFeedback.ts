@@ -1,19 +1,38 @@
-export default async function fetchALLFeedbacks() {
-  const res = await fetch(`http://localhost:3000/api/feedback`, {
-    cache: "no-store",
-  });
-  const data = await res.json();
-  return data.feedback;
-}
+import axios from "axios";
+
+const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+
+export const fetchALLFeedbacks = async () => {
+  try {
+    const res = await axios.get(`${apiUrl}/api/feedback`, {
+      headers: {
+        "Cashe-Control": "no-store",
+      },
+    });
+    return res.data.feedback;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
 
 export const postFeedback = async (comment: string | undefined) => {
-  const res = await fetch(`http://localhost:3000/api/feedback`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ comment, createdAt: new Date() }),
-  });
-
-  return res.json();
+  try {
+    const res = await axios.post(
+      `${apiUrl}/api/feedback`,
+      {
+        comment,
+        createdAt: new Date(),
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    return res.data.feedback;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 };
