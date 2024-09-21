@@ -1,14 +1,15 @@
 import axios from "axios";
 
-const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
-
+// const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+const apiURL = "http://localhost:3000";
 export const fetchALLFeedbacks = async () => {
   try {
-    const res = await axios.get(`${apiUrl}/api/feedback`, {
+    const res = await axios.get(`${apiURL}/api/feedback`, {
       headers: {
-        "Cashe-Control": "no-store",
+        "Cache-Control": "no-store",
       },
     });
+    console.log("Response data:", res.data);
     return res.data.feedback;
   } catch (error) {
     console.error(error);
@@ -19,7 +20,7 @@ export const fetchALLFeedbacks = async () => {
 export const postFeedback = async (comment: string | undefined) => {
   try {
     const res = await axios.post(
-      `${apiUrl}/api/feedback`,
+      `${apiURL}/api/feedback`,
       {
         comment,
         createdAt: new Date(),
