@@ -1,7 +1,7 @@
 import HomeContainer from "./components/HomeContainer";
 
-const page = () => {
+const Page = () => {
   return <HomeContainer />;
 };
 
-export default page;
+export default Page;
