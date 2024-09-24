@@ -1,8 +1,8 @@
 import prisma from "../../../lib/prisma";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 //GET API
-export const GET = async (req: Request, res: NextResponse) => {
+export async function GET() {
   try {
     const feedback = await prisma.feedback.findMany({
       orderBy: {
@@ -12,13 +12,11 @@ export const GET = async (req: Request, res: NextResponse) => {
     return NextResponse.json({ message: "Success", feedback }, { status: 200 });
   } catch (err) {
     return NextResponse.json({ message: "Error", err }, { status: 500 });
-  } finally {
-    await prisma.$disconnect();
   }
-};
+}
 
 //FEEDBACk投稿用API
-export const POST = async (req: Request, res: NextResponse) => {
+export async function POST(req: NextRequest) {
   try {
     const { comment, createdAt } = await req.json();
 
@@ -28,7 +26,5 @@ export const POST = async (req: Request, res: NextResponse) => {
     return NextResponse.json({ message: "Success", feedback }, { status: 201 });
   } catch (err) {
     return NextResponse.json({ message: "Error", err }, { status: 500 });
-  } finally {
-    await prisma.$disconnect();
   }
-};
+}
