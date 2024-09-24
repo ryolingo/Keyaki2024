@@ -1,4 +1,4 @@
-import { fetchALLFeedbacks } from "../hooks/useFeedback";
+import fetchALLFeedbacks from "../hooks/useFeedback";
 import Home from "./Home";
 
 const HomeContainer = async () => {
