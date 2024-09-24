@@ -1,7 +1,7 @@
 export type PostType = {
   id: number;
   comment: string;
-  createdAt: string;
+  createdAt: Date;
 };
 
 export class ServerActionError extends Error {

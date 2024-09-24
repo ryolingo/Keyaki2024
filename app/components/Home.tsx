@@ -26,10 +26,10 @@ const Home: React.FC<HomeProps> = ({ feedbacks }) => {
           scrollbarWidth: "none",
         }}
       >
-        {feedbacks?.map((feedback: PostType) => (
+        {feedbacks?.map((feedback) => (
           <FeedbackCard
             comment={feedback.comment}
-            createdAt={feedback.createdAt}
+            createdAt={feedback.createdAt.toString()}
             key={feedback.id}
           />
         ))}
