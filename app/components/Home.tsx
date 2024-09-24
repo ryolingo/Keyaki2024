@@ -29,7 +29,9 @@ const Home: React.FC<HomeProps> = ({ feedbacks }) => {
         {feedbacks?.map((feedback) => (
           <FeedbackCard
             comment={feedback.comment}
-            createdAt={feedback.createdAt.toString()}
+            createdAt={feedback.createdAt.toLocaleString("ja-JP", {
+              timeZone: "Asia/Tokyo",
+            })}
             key={feedback.id}
           />
         ))}
