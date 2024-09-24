@@ -1,11 +1,11 @@
 "use client";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import { postFeedback } from "../hooks/useFeedback";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PostForm from "./PostForm";
 import { ServerActionError } from "../types/types";
+import axios from "axios";
 
 const PostFormContainer = () => {
   const router = useRouter();
@@ -17,13 +17,17 @@ const PostFormContainer = () => {
     const toastID = toast.info("投稿中...");
 
     try {
-      await postFeedback(feedback);
+      const response = await axios.post("/api/feedback", {
+        comment: feedback,
+        createdAt: new Date(),
+      });
+      if (response.status == 201) {
+        toast.dismiss(toastID);
 
-      toast.dismiss(toastID);
-
-      router.refresh();
-      setFeedback("");
-      toast.success("投稿が完了しました！");
+        router.refresh();
+        setFeedback("");
+        toast.success("投稿が完了しました！");
+      }
     } catch (error) {
       if (error instanceof ServerActionError)
         return { success: false, error: error.message };
