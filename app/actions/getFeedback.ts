@@ -2,12 +2,12 @@ import prisma from "../../lib/prisma";
 
 const getFeedback = async () => {
   try {
-    const response = await prisma.feedback.findMany({
+    const feedbacks = await prisma.feedback.findMany({
       orderBy: {
         createdAt: "desc",
       },
     });
-    return response;
+    return feedbacks;
   } catch (error) {
     console.error(error);
   }
